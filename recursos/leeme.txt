@@ -1,0 +1,3 @@
+Esta carpeta es de uso opcional .
+
+Basicamente aqui pueden colocar sus archivos .p12 y la factura xml sin firma . para utilizarlos en la llamada al archivo firma-xades.jar
