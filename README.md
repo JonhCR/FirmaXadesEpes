@@ -22,10 +22,11 @@ Teniendo ya configurado java y las variables de entorno en nuestro servidor o co
 
 Para ejecutarlo y testearlo localmente abrimos la consola cmd(Windows) o la terminal (Linux , Apple) y ejecutamos lo siguiente.
 
-`Java -jar ../ruta_personalizada/compilado/firmar-xades.jar`
+`java -jar ../ruta_personalizada/compilado/firmar-xades.jar`
 
-Este primer comando ejecuta la aplicación, por ruta personalizada me refiero a que ubiquen donde clonaron o descargaron este repositorio.
-Ahora les va a dar una __excepción__ por que nuestra aplicación recibe __4 parametros__:
+Este primer comando ejecuta la aplicación, por __ruta_personalizada__ me refiero a que ubiquen donde clonaron o descargaron este repositorio dentro de la carpeta __FirmaXadesEpes__.
+
+Ahora, les va a dar una __excepción__ por que nuestra aplicación recibe __4 parametros__:
 1. Primer parámetro es la ruta en donde esta la llave .p12
 2. El segundo parámetro es el pin que desbloquea la llave
 3. El tercer parámetro es la factura en formato xml
@@ -33,7 +34,7 @@ Ahora les va a dar una __excepción__ por que nuestra aplicación recibe __4 par
 
 En este sentido el comando completo seria:
 
-`Java -jar ../ruta_personalizada/compilado/firmar-xades.jar ../ruta_personalizada/cert.p12 9865 ../ruta_personalizada/ demo-factura.xml ../ruta_personalizada/ demo-factura-firmada.xml`
+`java -jar ../ruta_personalizada/compilado/firmar-xades.jar ../ruta_personalizada/cert.p12 9865 ../ruta_personalizada/demo-factura.xml ../ruta_personalizada/ demo-factura-firmada.xml`
 
 Si todo sale bien , el archivo __demo-factura-firmada.xml__ debería estar en donde le indicamos en el cuarto parámetro.
 
@@ -41,18 +42,18 @@ Si todo sale bien , el archivo __demo-factura-firmada.xml__ debería estar en do
 
 ### PHP:
 `<?php 
-   shell_exec("Java -jar ../ruta_personalizada/compilado/firmar-xades.jar ../ruta_personalizada/cert.p12 9865 ../ruta_personalizada/ demo-factura.xml ../ruta_personalizada/ demo-factura-firmada.xml");`
+   shell_exec("java -jar ../ruta_personalizada/compilado/firmar-xades.jar ../ruta_personalizada/cert.p12 9865 ../ruta_personalizada/demo-factura.xml ../ruta_personalizada/demo-factura-firmada.xml");`
 
 ### Python:
 `import subprocess
- subprocess.call(['java', '-jar', '../ruta_personalizada/compilado/firmar-xades.jar' , ‘../ruta_personalizada/cert.p12’ , ‘9856’ , ‘../ruta_personalizada/ demo-factura.xml’, ‘../ruta_personalizada/ demo-factura-firmada.xml’])`
+ subprocess.call(['java', '-jar', '../ruta_personalizada/compilado/firmar-xades.jar' , ‘../ruta_personalizada/cert.p12’ , ‘9856’ , ‘../ruta_personalizada/demo-factura.xml’, ‘../ruta_personalizada/demo-factura-firmada.xml’])`
 
 ### Ruby:
-`IO.popen( [ 'java', '-jar', '../ruta_personalizada/compilado/firmar-xades.jar,"#{ ../ruta_personalizada/cert.p12}", "#{9856}", “#{../ruta_personalizada/ demo-factura.xml}” ,”#{ demo-factura.xml ../ruta_personalizada/ demo-factura-firmada.xml}” , {SDTERR=>STDOUT} ]`
+`IO.popen( [ 'java', '-jar', '../ruta_personalizada/compilado/firmar-xades.jar,"#{ ../ruta_personalizada/cert.p12}", "#{9856}", “#{../ruta_personalizada/demo-factura.xml}” ,”#{ demo-factura.xml ../ruta_personalizada/demo-factura-firmada.xml}” , {SDTERR=>STDOUT} ]`
 
 ### Node.JS:
 `var exec = require('child_process').exec, child;
-child = exec('java -jar ../ruta_personalizada/compilado/firmar-xades.jar ../ruta_personalizada/cert.p12 9865 ../ruta_personalizada/ demo-factura.xml ../ruta_personalizada/ demo-factura-firmada.xml',
+child = exec('java -jar ../ruta_personalizada/compilado/firmar-xades.jar ../ruta_personalizada/cert.p12 9865 ../ruta_personalizada/demo-factura.xml ../ruta_personalizada/demo-factura-firmada.xml',
   function (error, stdout, stderr){
     console.log('stdout: ' + stdout);
     console.log('stderr: ' + stderr);
